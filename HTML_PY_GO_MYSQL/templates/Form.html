@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+</head>
+<body>
+    <form id="signupForm" method="post" action="/">
+        <div class='container'>
+            <div class='header'>
+                <div class='text'>SignUp</div>
+            </div>
+            <div class='inputs'>
+                <div class='input'>
+                    <input type='text' name="name" placeholder="Name"/>
+                </div>
+                <div class='input'>
+                    <input type='email' name="email" placeholder='Email'/>
+                </div>
+            </div>
+            <div>
+                <select id="backendSelect">
+                    <option value="">Select Backend</option>
+                    <option value="python">Python</option>
+                    <option value="go">Go</option>
+                </select>
+            </div>
+            <div class='submit-container'>
+                <div class='submit'>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // Get form and select elements
+        const form = document.getElementById('signupForm');
+        const backendSelect = document.getElementById('backendSelect');
+
+        // Add event listener to select element
+        backendSelect.addEventListener('change', function() {
+            // Get the selected backend value
+            const selectedBackend = backendSelect.value;
+
+            // Update form action based on selected backend
+            if (selectedBackend === 'python') {
+                form.action = "/python";
+            } else if (selectedBackend === 'go') {
+                form.action = "/go";
+            } else {
+                form.action = "/";
+            }
+        });
+    </script>
+</body>
+</html>
